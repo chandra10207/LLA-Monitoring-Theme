@@ -84,6 +84,10 @@ textarea:focus::placeholder {
     border: 1px solid #e2e8f0;
   }
 
+  @media (min-width: 640px) {
+    padding: 3rem 1rem 3rem 1rem;
+  }
+
   h2 {
     color: var(--blue);
     margin-bottom: 10px;
@@ -324,6 +328,8 @@ textarea:focus::placeholder {
 
   .gsection_title {
     color: var(--blue);
+    font-size: 1.4rem;
+
   }
 
   .gsection_description {

@@ -112,7 +112,10 @@ get_header(); ?>
     <?php
 
     if (!empty($seq_quote_id)) {
-      echo '<h2 class="success-message">Additional monitoring details for quote - ' . $seq_quote_id . '</h2>';
+      echo '<h2 class="success-message">Additional monitoring details for quote: ' . $seq_quote_id . '</h2>';
+    }
+     elseif (!empty($seq_order_id)) {
+      echo '<h2 class="success-message">Additional monitoring details for order: ' . $seq_order_id . '</h2>';
     }
     else{
        echo '<h2 class="success-message">Additional monitoring details </h2>';
