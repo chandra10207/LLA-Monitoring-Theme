@@ -1,0 +1,56 @@
+.lsfw.website{
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 1199px) {
+        flex-direction: column-reverse;
+    }
+    
+
+    .sfs{
+        
+
+    @media (min-width: 1200px) {
+        max-width: 300px;
+    }
+        .inner{
+            position: relative;
+            top: 40px;
+            padding: 2rem 1.5rem;
+            background: #fff;
+            display: flex;
+            gap: 15px;
+            flex-direction: column;
+            border-radius: 30px;
+
+
+             @media (max-width: 1199px) {
+                margin-bottom: 30px;
+            top: 0px;
+            }
+
+
+            p{
+                font-size: 15px;
+            }
+
+            .ltitle{
+                color: var(--blue);
+            }
+
+            .btn-view-quote{
+                background-color: var(--blue);
+                color: #fff;
+                border-radius: 30px;
+                text-align: center;
+                max-width: 134px;
+                font-size: 14px;
+
+                &:hover, &:focus, &:active{
+                    background-color: var(--red);
+                }
+
+            }
+        }
+    }
+}

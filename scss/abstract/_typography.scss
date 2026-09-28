@@ -1,0 +1,84 @@
+.lla-landing{
+
+    h1,.h1,h2,.h2,h3,.h3,h4,.h4{
+        line-height: 1.3;
+        font-weight: 800;
+
+    }
+    
+    .heading{
+        .sub-heading{
+            font-weight: 300;
+            color: $tertiary;
+        }
+    }
+
+    h1,.h1{
+        font-size: 40px;
+        font-weight: 800;
+
+        @media (min-width: 767px) {
+            font-size: 60px;
+        }
+    }
+
+    h2, .h2{
+        font-size: 20px;
+
+        @media (min-width: 767px) {
+            font-size: 30px;
+        }
+    }
+
+    h3, .h3{
+        font-size: 18px;
+        font-weight: 800;
+
+
+        @media (min-width: 767px) {
+            font-size: 18px;
+        }
+    }
+
+    
+    .primary{
+        color: $primary;
+    }
+    
+    
+    .secondary{
+        color: $secondary;
+    }
+
+    .lead{
+        font-size: 18px;
+        color: $leadColour;
+        @media (min-width: 640px) {
+            font-size: 22px;
+        }
+    }
+
+    p,ul, ol{
+        font-size: 16px;  
+        text-align: unset;
+        color: $bodyText;
+        
+    }
+
+    ul:not(.slides, .grid), ol{
+
+        @media (max-width: 767px) {
+            padding-left: 15px;
+        }
+        
+    }
+
+    img, a, p {
+        @media (max-width: 767px) {
+            height: auto;
+        }     
+    }
+
+
+}
+
