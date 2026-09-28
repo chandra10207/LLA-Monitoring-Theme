@@ -1,0 +1,126 @@
+/*
+Theme Name: Avada Child
+Description: Child theme for Avada theme
+Author: ThemeFusion
+Author URI: https://theme-fusion.com
+Template: Avada
+Version: 1.0.0
+Text Domain:  Avada
+*/
+
+#menu-main-menu-right{
+	flex-wrap: nowrap;
+}
+.tc_close_box{
+    display: none !important;
+}
+
+.shop_tag_title {
+    border-bottom: 0 none !important;
+}
+/* body.single-product .flex-direction-nav a {opacity: 1 !important;} */
+body.page-id-1150 #main,
+body.page-id-1150 .fm-form-container.fm-theme1 .fm-form,
+body.page-id-2070 #main,
+body.page-id-2070 .fm-form-container.fm-theme1 .fm-form
+ {
+    padding-top: 0 !important;
+}
+#wrapper .csp_custom_banner {
+    min-height: 400px !important;
+}
+
+
+#wrapper .csp_custom_banner h1,
+ #wrapper .csp_custom_banner h4{
+    color: #15216b !important;
+    font-family: "Merriweather Sans" !important;
+    font-weight: 500 !important;
+    text-shadow: rgba(255,255,255, 0.75) 5px 0px 10px !important;
+    box-shadow: rgba(255,255,255, 0.5) 0px 0px 0px 0px !important;
+}
+
+#wrapper .csp_custom_banner h1{
+    font-size: 30px !important;
+    color: #15216b;
+
+}
+#wrapper .csp_custom_banner h4{
+    font-size: 24px !important;
+    color: #15216b;
+
+}
+
+#wrapper #main .fullwidth-box.csp_custom_banner .fusion-row {
+    align-items: center !important;
+}
+
+body.postid-1999 .woocommerce-product-gallery__image,
+body.postid-349 .woocommerce-product-gallery__image{
+    opacity: 0;
+}
+
+body.postid-1999  .woocommerce-product-gallery__image.flex-active-slide,
+body.postid-349  .woocommerce-product-gallery__image.flex-active-slide{
+    opacity: 1;
+}
+
+.single-product p{
+    font-weight: 300 !important;
+} 
+
+/* body.single-product .flex-control-thumbs img {
+    max-width: 100px !important;
+} */
+
+body .home_r1_ul1 li {
+    background-position: left 5px;
+}
+
+body .fm-form-container.fm-theme1 .fm-form .fm-header-description {
+    text-align: center;
+    padding: 20px 0;
+}
+.fm-form input::placeholder,
+.fm-form textarea::placeholder{
+  color: #aaa;
+}
+.fm-form input:focus::placeholder,
+.fm-form textarea:focus::placeholder{
+  color: #fff;
+}
+
+
+.woocommerce-product-gallery__wrapper a img{
+    width: 100% !important;
+}
+
+
+
+
+
+
+@media only screen and (min-width:1279px) {
+    
+    .lla-sticky-column{
+    position: sticky;
+    top: 30px;
+}
+
+
+    #wrapper .csp_custom_banner {
+    min-height: 700px !important;
+}
+
+
+#wrapper .csp_custom_banner h1{
+    font-size: 70px !important;
+
+}
+#wrapper .csp_custom_banner h4{
+    font-size: 32px !important;
+
+}
+
+
+}
