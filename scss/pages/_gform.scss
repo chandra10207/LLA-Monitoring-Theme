@@ -26,6 +26,10 @@ textarea:focus::placeholder {
   background: #f8fafc;
   padding: 2rem 0 4rem 0;
 
+  .select-arrow{
+    display: none;
+  }
+
   .gfield_radio {
     .gchoice {
       &:hover {
@@ -83,6 +87,7 @@ textarea:focus::placeholder {
   h2 {
     color: var(--blue);
     margin-bottom: 10px;
+    font-size: 1.5rem;
   }
 }
 
