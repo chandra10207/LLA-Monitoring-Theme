@@ -110,7 +110,7 @@ get_header(); ?>
 
 
     <?php
-
+/*
     if (!empty($seq_quote_id)) {
       echo '<h2 class="success-message">Additional monitoring details for quote: ' . $seq_quote_id . '</h2>';
     }
@@ -120,15 +120,30 @@ get_header(); ?>
     else{
        echo '<h2 class="success-message">Additional monitoring details </h2>';
     }
+*/
+    ?>
+
+        <?php
+
+    if (!empty($seq_order_id)) {
+      echo '<h2 class="success-message">Complete your alarm setup for order - ' . $seq_order_id . '</h2>';
+    }
+
+
+    if (!empty($seq_quote_id)) {
+      echo '<h2 class="success-message">Complete your alarm setup </h2>';
+    }
 
     ?>
-    <p class="lla-form-description">
-      For 24/7 Professional Monitoring, we need information about the wearer's medical history and direction of entry for emergency services to enter the property.
-     
+
+        <p class="lla-form-description">
+      To program your
+      <?php echo $device_name; ?>, we need information about the wearer and their emergency contacts.
+      <?php if (empty($quote_btn_url)) { ?>
+        Please fill in the details below.
+      <?php } ?>
 
     </p>
-
-
 
     <div class="lla-setup-form-wrapper lsfw <?php echo $referrer_source; ?>">
 
