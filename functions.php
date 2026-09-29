@@ -205,3 +205,9 @@ add_action( 'init', 'lla_set_custom_timezone' );
 function lla_set_custom_timezone() {
     date_default_timezone_set( 'Australia/Sydney' );
 }
+
+add_action('init', function () {
+    if (class_exists('GFCommon')) {
+        require_once get_stylesheet_directory() . '/inc/gform-customisation.php';
+    }
+});
