@@ -1,0 +1,39 @@
+// :root{
+//     --dark-bg: #464441;
+//     --blue: #4a4c9a;
+//     --red: #e40030;
+//     --grey: #8f847f;
+//     --paragraph: #5b5651;
+//     --light-bg: #f4f2ef;
+//     --grey-bg: #d3d2cc;
+//     --tab-grey: #e4e3df;
+//     --border-dark: #d9d6cf;
+//     --color-on-dark: #bfbcb5;
+// }
+
+
+$primary: var(--blue);
+$secondary: var(--red);
+$tertiary: var(--grey);
+$light: var(--grey);
+$dark: var(--dark-bg);
+$btnArrowBg: #070351;
+$border: var(--border-dark);
+$content-bg: var(--content-bg);
+$subtext: var(--subtext);
+$link: var(--link);
+$link-hover: var(--link-hover);
+$link-active: var(--link-active);
+$link-visited: var(--link-visited);
+
+$leadColour: #334155;
+$alternateBg: #f8fafc;
+$white: #fff;
+$borderColor: #e2e8f0;
+$borderColor2: #cecfe1;
+
+$bgHighlight: #d3d2cc;
+$bgHighlightAlternate : #e4e3df;
+$bodyText: #475569;
+
+
