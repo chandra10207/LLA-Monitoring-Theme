@@ -1,5 +1,11 @@
 <?php 
 
+add_filter('csp_sfc_gf_form_object_map', function ($map) {
+
+    return [
+        2  => 'Setup_Form__c',
+    ];
+});
 
 
 add_filter('gform_field_validation_2_46', 'lla_validate_numeric_phone_field', 10, 5);
