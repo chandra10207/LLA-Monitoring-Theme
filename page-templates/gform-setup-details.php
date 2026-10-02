@@ -152,9 +152,9 @@ get_header(); ?>
         <?php
 
         if ($is_monitoring == "1") {
-          echo do_shortcode('[gravityform id="' . $monitoring_setup_form_id . '" title="false" ajax="true" field_values="order_number=' . $seq_order_id . '&amp;quote_number=' . $seq_quote_id . '" ]');
+          echo do_shortcode('[gravityform id="' . $monitoring_setup_form_id . '" title="false" ajax="false" field_values="order_number=' . $seq_order_id . '&amp;quote_number=' . $seq_quote_id . '" ]');
         } else {
-          echo do_shortcode('[gravityform id="' . $family_setup_form_id . '" title="false" ajax="true" field_values="order_number=' . $seq_order_id . '&amp;quote_number=' . $seq_quote_id . '" ]');
+          echo do_shortcode('[gravityform id="' . $family_setup_form_id . '" title="false" ajax="false" field_values="order_number=' . $seq_order_id . '&amp;quote_number=' . $seq_quote_id . '" ]');
         }
 
 

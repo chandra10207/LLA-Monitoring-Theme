@@ -123,6 +123,8 @@ textarea:focus::placeholder {
   .gform_validation_errors {
     ol li {
       margin-bottom: 10px;
+    list-style: disc;
+    text-align: left;
 
       a {
         text-decoration: none;
@@ -666,8 +668,10 @@ textarea:focus::placeholder {
 
       &.validation_message{
         color: red;
-        font-weight: 500;
-      // display: none;
+        font-weight: 500 !important;
+    text-align: left;
+    border: 0 none !important;
+    opacity: 1;
 
       }
       
@@ -724,6 +728,16 @@ textarea:focus::placeholder {
 
 
 #lla-setup-form-container {
+
+  input[aria-invalid="true"] {
+    border-width: 2px !important;
+    border-color: red;
+
+    &:not(:placeholder-shown) {
+  border-color:var(--form_border_color);
+}
+}
+
 
 
   .gfield {

@@ -7,6 +7,13 @@ add_filter('csp_sfc_gf_form_object_map', function ($map) {
     ];
 });
 
+add_filter('gform_countries', 'lla_limit_countries_to_au_nz');
+function lla_limit_countries_to_au_nz($countries)
+{ 
+    $countries = array('Australia');
+    return $countries;
+}
+
 
 add_filter('gform_field_validation_2_46', 'lla_validate_numeric_phone_field', 10, 5);
 add_filter('gform_field_validation_2_47', 'lla_validate_numeric_phone_field', 10, 5);
