@@ -182,12 +182,8 @@ get_header(); ?>
     const field = document.querySelector('.lla-preferred-contact-radios');
 
     if (!field) {
-      console.log('Field not found');
       return;
     }
-
-    console.log('Selected value:', e.target.value);
-    console.log('Field:', field);
 
     field.classList.toggle('open', e.target.value === '0');
 
