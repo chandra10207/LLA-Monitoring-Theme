@@ -8,6 +8,19 @@ Version: 1.0.0
 Text Domain:  Avada
 */
 
+:root {
+    --dark-bg: #464441;
+    --blue: #4a4c9a;
+    --red: #e40030;
+    --grey: #8f847f;
+    --paragraph: #5b5651;
+    --light-bg: #f4f2ef;
+    --grey-bg: #d3d2cc;
+    --tab-grey: #e4e3df;
+    --border-dark: #d9d6cf;
+    --color-on-dark: #bfbcb5
+}
+
 #menu-main-menu-right{
 	flex-wrap: nowrap;
 }

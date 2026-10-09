@@ -40,6 +40,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	gtag('config', 'G-XT437XVHM6');
 	</script>
 
+
+ <?php get_template_part('template-parts/header-scripts'); ?>
 </head>
 
 <?php
