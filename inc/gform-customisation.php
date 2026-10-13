@@ -48,9 +48,7 @@ function customize_signature_options( $init_options, $field, $form ) {
 
 
     $init_options['minWidth'] = 1; // Thicker minimum line width
-    $init_options['maxWidth'] = 8; // Thicker maximum line width
-    $init_options['minHeight'] = 8; // Thicker maximum line width
-    $options['IpadSignatureHeight'] = 220; 
+    $init_options['maxWidth'] = 1; // Thicker maximum line width
  
     return $init_options;
 }
