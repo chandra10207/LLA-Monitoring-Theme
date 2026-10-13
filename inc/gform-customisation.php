@@ -43,8 +43,14 @@ function lla_validate_numeric_phone_field($result, $value, $form, $field)
     return $result;
 }
 
+add_filter( 'gform_signature_init_options', 'customize_signature_options', 10, 3 );
+function customize_signature_options( $init_options, $field, $form ) {
 
 
-
-
-
+    $init_options['minWidth'] = 1; // Thicker minimum line width
+    $init_options['maxWidth'] = 8; // Thicker maximum line width
+    $init_options['minHeight'] = 8; // Thicker maximum line width
+    $options['IpadSignatureHeight'] = 220; 
+ 
+    return $init_options;
+}
