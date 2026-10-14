@@ -51,27 +51,69 @@ function customize_signature_options($init_options, $field, $form)
     return $init_options;
 }
 
+
+function lla_build_monioring_agreement_data($entry){
+
+
+$commencement_date = $entry['11'];
+$formatted_commencement_date = '';
+if(!empty($commencement_date)){
+    $date_obj = DateTime::createFromFormat('!d F Y', $commencement_date);
+    $formatted_commencement_date = $date_obj ? $date_obj->format('Y-m-d') : '';
+}
+
+
+
+
+            $GF_Entry = [
+      'entry_id'          => $entry['id'],
+      'form_id'           => $entry['form_id'],
+      'date_created'      => $entry['date_created'],
+      'enquiry_id'     => $entry['8'] ?? '',
+      'ip'     => $entry['ip'] ?? '',
+
+      // Prescriber Details
+      'client_organisation_name' => $entry['9'] ?? '',
+      'client_organisation_street_address'  => $entry['10.1'] ?? '',
+      'client_organisation_city'  => $entry['10.3'] ?? '',
+      'client_organisation_state'  => $entry['10.4'] ?? '',
+      'client_organisation_postcode'  => $entry['10.5'] ?? '',
+      'client_organisation_country'  => $entry['10.6'] ?? '',
+      'client_organisation_full_address'  => $entry['16'] ?? '',
+
+      'prescriber_phone'    => $entry['88'] ?? '',
+      'prescriber_email'    => $entry['24'] ?? '',
+      'email'    => $entry['3'] ?? '',
+      'phone'  => $entry['4'] ?? '',
+      'commencement_date'     => $formatted_commencement_date ?? '',
+      'term'    => $entry['12'] ?? '',
+      'fullname_of_signee' => $entry['13'] ?? '',
+      'signing_on_behalf'  => $entry['14'] ?? '',
+
+    ];
+
+    return $GF_Entry;
+}
+
 function lla_add_monitoring_agreement_data_sf($data, $entry, $object_name = null)
 {
-    // if (!empty($data) && $entry['form_id'] != '1') {
-    //     return $data;
-    // }
+    if (!empty($data) && $entry['form_id'] != '1') {
+        return $data;
+    }
+
+    $GF_Entry = lla_build_monioring_agreement_data($entry);
 
     $salesforce_data = [
-        'Client_Organisation_Name__c' => 'LiveLife Alarms', // Client / Organisation Name (string 255)
-        'Commencement_Date__c'        => '202',             // Commencement Date (date)
-        'Country__c'                  => '',                // Country (string 255)
-        'Email__c'                    => '',                // Email (email 80)
-        'Enquiry_ID__c'               => '',                // Enquiry ID (string 255)
-        'Full_Name_of_Signee__c'      => '',                // Full name of Signee (string 255)
-        'Organisation_City__c'        => '',                // Organisation City (string 255)
-        'Organisation_State__c'       => '',                // Organisation State (string 255)
-        'Phone__c'                    => '',                // Phone (phone 40)
-        'Organisation_Postcode__c'    => '',                // Organisation Postcode (string 255)
-        'Signing_on_Behalf_of__c'     => '',                // Signing on Behalf of (string 255)
-        'Source__c'                   => '',                // Source (picklist 255)
-        'Organisation_Street_Name__c' => '',                // Organisation Street Name (string 255)
-        'Term__c'                     => '',                // Term (picklist 255)
+        'Client_Organisation_Name__c' =>  $GF_Entry['client_organisation_name'],
+        'Commencement_Date__c'        => $GF_Entry['commencement_date'],             // Commencement Date (date)
+        'Client_Organisation_Address__c'                  => $GF_Entry['client_organisation_full_address'],                // Country (string 255)
+        'Email__c'                    => $GF_Entry['email'],                // Email (email 80)
+        'Enquiry_ID__c'               => $GF_Entry['enquiry_id'],                // Enquiry ID (string 255)
+        'Full_Name_of_Signee__c'      => $GF_Entry['fullname_of_signee'],                // Full name of Signee (string 255)
+        'Phone__c'                    => $GF_Entry['phone'],                // Phone (phone 40)
+        'Signing_on_Behalf_of__c'     => $GF_Entry['signing_on_behalf'],                // Signing on Behalf of (string 255)
+        'Source__c'                   => 'Woo',                // Source (picklist 255)
+        'Term__c'                     => $GF_Entry['term'],                // Term (picklist 255)
     ];
     return $salesforce_data;
 
