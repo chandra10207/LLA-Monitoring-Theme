@@ -94,6 +94,7 @@ function lla_build_monioring_agreement_data($entry)
         'fullname_of_signee' => $entry['13'] ?? '',
         'signing_on_behalf'  => $entry['14'] ?? '',
         'agreement_pdf_url'  => $mon_agreement_base_url . $entry['id'] . '/',
+        'alarm_number' => $entry['15'] ?? '',
     ];
     return $GF_Entry;
 }
@@ -118,6 +119,7 @@ function lla_add_monitoring_agreement_data_sf($data, $entry, $object_name = null
         'Source__c'                   => 'Woo',                // Source (picklist 255)
         'Term__c'                     => $GF_Entry['term'],                // Term (picklist 255)
         'Agreement_PDF_URL__c'           => $GF_Entry['agreement_pdf_url'],                // Agreement PDF URL (url 255)
+        'Alarm_Number__c'             => $GF_Entry['alarm_number'],                // Alarm Number (string 255)
     ];
     return $salesforce_data;
 }
