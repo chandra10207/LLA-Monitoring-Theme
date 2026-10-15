@@ -52,46 +52,49 @@ function customize_signature_options($init_options, $field, $form)
 }
 
 
-function lla_build_monioring_agreement_data($entry){
+function lla_build_monioring_agreement_data($entry)
+{
 
 
-$commencement_date = $entry['11'];
-$formatted_commencement_date = '';
-if(!empty($commencement_date)){
-    $date_obj = DateTime::createFromFormat('!d F Y', $commencement_date);
-    $formatted_commencement_date = $date_obj ? $date_obj->format('Y-m-d') : '';
-}
+    $commencement_date = $entry['11'];
+    $formatted_commencement_date = '';
+    if (!empty($commencement_date)) {
+        $date_obj = DateTime::createFromFormat('!d F Y', $commencement_date);
+        $formatted_commencement_date = $date_obj ? $date_obj->format('Y-m-d') : '';
+    }
 
+    if (defined('MONITORING_AGREEMENT_BASE_URL')) {
+        $mon_agreement_base_url = MONITORING_AGREEMENT_BASE_URL;
+    } else {
+        $mon_agreement_base_url = 'https://monitoring.livelifealarms.com.au/pdf/6ab9cdaaa99c5/';
+    }
 
+    $GF_Entry = [
+        'entry_id'          => $entry['id'],
+        'form_id'           => $entry['form_id'],
+        'date_created'      => $entry['date_created'],
+        'enquiry_id'     => $entry['8'] ?? '',
+        'ip'     => $entry['ip'] ?? '',
 
+        // Prescriber Details
+        'client_organisation_name' => $entry['9'] ?? '',
+        'client_organisation_street_address'  => $entry['10.1'] ?? '',
+        'client_organisation_city'  => $entry['10.3'] ?? '',
+        'client_organisation_state'  => $entry['10.4'] ?? '',
+        'client_organisation_postcode'  => $entry['10.5'] ?? '',
+        'client_organisation_country'  => $entry['10.6'] ?? '',
+        'client_organisation_full_address'  => $entry['16'] ?? '',
 
-            $GF_Entry = [
-      'entry_id'          => $entry['id'],
-      'form_id'           => $entry['form_id'],
-      'date_created'      => $entry['date_created'],
-      'enquiry_id'     => $entry['8'] ?? '',
-      'ip'     => $entry['ip'] ?? '',
-
-      // Prescriber Details
-      'client_organisation_name' => $entry['9'] ?? '',
-      'client_organisation_street_address'  => $entry['10.1'] ?? '',
-      'client_organisation_city'  => $entry['10.3'] ?? '',
-      'client_organisation_state'  => $entry['10.4'] ?? '',
-      'client_organisation_postcode'  => $entry['10.5'] ?? '',
-      'client_organisation_country'  => $entry['10.6'] ?? '',
-      'client_organisation_full_address'  => $entry['16'] ?? '',
-
-      'prescriber_phone'    => $entry['88'] ?? '',
-      'prescriber_email'    => $entry['24'] ?? '',
-      'email'    => $entry['3'] ?? '',
-      'phone'  => $entry['4'] ?? '',
-      'commencement_date'     => $formatted_commencement_date ?? '',
-      'term'    => $entry['12'] ?? '',
-      'fullname_of_signee' => $entry['13'] ?? '',
-      'signing_on_behalf'  => $entry['14'] ?? '',
-
+        'prescriber_phone'    => $entry['88'] ?? '',
+        'prescriber_email'    => $entry['24'] ?? '',
+        'email'    => $entry['3'] ?? '',
+        'phone'  => $entry['4'] ?? '',
+        'commencement_date'     => $formatted_commencement_date ?? '',
+        'term'    => $entry['12'] ?? '',
+        'fullname_of_signee' => $entry['13'] ?? '',
+        'signing_on_behalf'  => $entry['14'] ?? '',
+        'agreement_pdf_url'  => $mon_agreement_base_url . $entry['id'] . '/',
     ];
-
     return $GF_Entry;
 }
 
@@ -114,8 +117,8 @@ function lla_add_monitoring_agreement_data_sf($data, $entry, $object_name = null
         'Signing_on_Behalf_of__c'     => $GF_Entry['signing_on_behalf'],                // Signing on Behalf of (string 255)
         'Source__c'                   => 'Woo',                // Source (picklist 255)
         'Term__c'                     => $GF_Entry['term'],                // Term (picklist 255)
+        'Agreement_PDF_URL__c'           => $GF_Entry['agreement_pdf_url'],                // Agreement PDF URL (url 255)
     ];
     return $salesforce_data;
-
 }
-add_filter('csp_sfc_gf_generic_form_data', 'lla_add_monitoring_agreement_data_sf', 10,3);
+add_filter('csp_sfc_gf_generic_form_data', 'lla_add_monitoring_agreement_data_sf', 10, 3);
