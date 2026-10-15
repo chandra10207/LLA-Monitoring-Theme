@@ -84,9 +84,6 @@ function lla_build_monioring_agreement_data($entry)
         'client_organisation_postcode'  => $entry['10.5'] ?? '',
         'client_organisation_country'  => $entry['10.6'] ?? '',
         'client_organisation_full_address'  => $entry['16'] ?? '',
-
-        'prescriber_phone'    => $entry['88'] ?? '',
-        'prescriber_email'    => $entry['24'] ?? '',
         'email'    => $entry['3'] ?? '',
         'phone'  => $entry['4'] ?? '',
         'commencement_date'     => $formatted_commencement_date ?? '',
