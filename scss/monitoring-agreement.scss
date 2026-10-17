@@ -1,0 +1,40 @@
+@import 'abstract/variable';
+@import 'abstract/utilities';
+@import 'pages/gform';
+
+
+.monitoring-terms{
+    *{
+        font-size: 14px;
+    }
+}
+
+html:not(.avada-has-site-width-percent) #main {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.lla-form-container{
+
+    @media (min-width: 900px) {
+        max-width: 700px;
+        padding-top: 1rem;
+    }
+}
+
+
+.lla-custom-gform-container .gform-theme--foundation .gform_fields .gfield {
+    border-width: 0;
+}
+
+
+.lla-readonly {
+  cursor: not-allowed;
+
+    .ginput_container {
+        pointer-events: none;  
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
